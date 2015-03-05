@@ -12,12 +12,12 @@ namespace Seel3d.ApiWrapper
     {
         protected HttpClient WebApi { get; set; }
 
-        public Seel3dClient()
+        public Seel3dClient(string baseAddress = "http://seel3dwebservice.azurewebsites.net/api/")
         {
             WebApi = new HttpClient
             {
                 //BaseAddress = new Uri("http://localhost:41148/api/")
-                BaseAddress = new Uri("http://seel3dwebservice.azurewebsites.net/api/")
+                BaseAddress = new Uri(baseAddress)
             };
             WebApi.DefaultRequestHeaders.Accept.Clear();
             WebApi.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
